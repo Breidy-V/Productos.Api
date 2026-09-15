@@ -18,11 +18,13 @@ namespace Productos.Api.Tests
 
             var okResult = Assert.IsType<OkObjectResult>(resultado);
 
-            var valor = okResult.Value;
+            Assert.NotNull(okResult.Value);
 
-            var propiedadMcd = valor!.GetType().GetProperty("mcd");
+            var propiedadMcd = okResult.Value.GetType().GetProperty("mcd");
 
-            var mcd = propiedadMcd!.GetValue(valor);
+            Assert.NotNull(propiedadMcd);
+
+            var mcd = propiedadMcd.GetValue(okResult.Value);
 
             Assert.Equal(esperado, mcd);
         }
