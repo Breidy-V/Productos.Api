@@ -6,6 +6,14 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+<ItemGroup>
+  <Compile Remove="Productos.Api.Tests/**/*.cs" />
+  <Compile Remove="Productos.WinForms/**/*.cs" />
+  <Compile Remove="Productos.Blazor/**/*.cs" />
+  <Content Remove="Productos.Blazor/**/*.razor" />
+  <None Remove="Productos.Blazor/**/*" />
+</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.79" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.11" />
